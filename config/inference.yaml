@@ -1,0 +1,31 @@
+defaults:
+  - _self_
+
+# required values
+use_engine: "vllm"  # "openai" or "vllm"
+
+# experiment
+lang: "rkt"
+method: "raw"
+name: "unsloth/Meta-Llama-3.1-8B-Instruct"
+root_dataset: "humaneval"
+
+# dataset
+use_local: true
+output_dir_prefix: multiple_results/${method}
+dataset: ${oc.env:BASE_DIR}/multipl_e/prompts/${root_dataset}-${lang}-reworded.jsonl
+batch_size: 20
+completion_limit: 20
+name_override: null
+output_dir: null
+input_start_index: null
+prompt_prefix: null
+input_limit: null
+
+# inference
+temperature: 0.2
+top_p: 0.95
+max_tokens: 2048
+
+# vllm
+max_model_len: 8192

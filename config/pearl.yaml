@@ -1,0 +1,6 @@
+tokenizer_name: "microsoft/unixcoder-base"
+retriever_name: "microsoft/unixcoder-base"
+top_k: 3
+index_cache_dir: "rag/index"
+codebase_path: "nuprl/MultiPL-T"
+knowledgebase_path: "documents/knowledge/{full_lang}/{full_lang}_knowledge_v3_mini.jsonl"

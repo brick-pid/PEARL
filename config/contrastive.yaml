@@ -1,0 +1,21 @@
+full_lang: "racket"
+short_lang: "rkt"
+
+project_dir: ${oc.env:BASE_DIR}
+
+
+model_name: "unsloth/Meta-Llama-3.1-8B-Instruct"
+retriever_model_name: "microsoft/unixcoder-base"
+knowledge_path: ${project_dir}/documents/knowledge/${full_lang}/${full_lang}_knowledge_v3_mini.jsonl
+candidate_pool_path: ${project_dir}/contrastive_learning/data/${full_lang}_candidate_pool.jsonl
+index_cache_dir: ${project_dir}/rag/index
+top_k: 10
+
+train_dataset: ${project_dir}/contrastive_learning/multipl-t-splitted/multiplt_${full_lang}.jsonl
+
+num_gpus: 4
+
+# score
+score_path: ${project_dir}/contrastive_learning/data/${full_lang}_score.jsonl
+base_url: "http://localhost:8000/v1"
+api_key: "token-abc123"
