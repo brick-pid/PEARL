@@ -8,12 +8,8 @@ from methods.raw.raw import RAW
 from methods.fewshot.fewshot import FewShot
 # from methods.ret_fewshot.ret_fewshot import RetFewShot
 # from methods.hycode.hycode import HyCode
-# from methods.hycode.hycode2 import HyCode2
-# from methods.cot.cot import CoT
-# from methods.subquery.subquery import SubQuery
 from methods.pearl.pearl import PEARL
 from methods.pearl.pearl_chat import PEARL_CHAT
-# from methods.pearl.pearl_wo_cot import PEARL_wo_cot
 import hydra
 from omegaconf import DictConfig
 from engine import VLLM, OpenAIEngine, OpenAIChatEngine
@@ -46,24 +42,18 @@ def main(cfg: DictConfig):
 
     if cfg.method == "raw":
         method = RAW(cfg.lang, model)
-    # elif cfg.method == "cot":
-    #     method = CoT(cfg.lang, model)
     # elif cfg.method == "fewshot":
     #     method = FewShot(cfg.lang, model)
     # elif cfg.method == "ret_fewshot":
     #     method = RetFewShot(cfg.lang, model)
     # elif cfg.method == "hycode":
     #     method = HyCode(cfg.lang, model)
-    # elif cfg.method == "hycode2":
-    #     method = HyCode2(cfg.lang, model)
     # elif cfg.method == "subquery":
     #     method = SubQuery(cfg.lang, model)
     elif cfg.method == "pearl":
         method = PEARL(cfg.lang, model)
     elif cfg.method == "pearl_chat":
         method = PEARL_CHAT(cfg.lang, model)
-    # elif cfg.method == "pearl_wo_cot":
-    #     method = PEARL_wo_cot(cfg.lang, model)
     else:
         raise ValueError(f"Unknown method: {cfg.method}")
     
