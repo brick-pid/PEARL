@@ -38,14 +38,20 @@ PEARL/
 ```
 
 ## Quick Start
-Generate code completions:
 
-```bash
+### Inference
+
+Generate code completions for each language:
+```python
 python inference.py lang="rkt" name="unsloth/Meta-Llama-3.1-8B-Instruct" method="pearl"
 ```
 
-Run evaluation across multiple languages:
+### Evaluation
 
-```bash
-bash run_gen.sh
+```python
+# Evaluate generated completions (use --full-function for complete function generation)
+python multipl_e/evaluation/src/main.py --dir "multiple_results/${method}" --output-dir "multiple_results/${method}" --full-function --recursive
+
+# Calculate pass@k metrics
+python multipl_e/pass_k.py "multiple_results/${method}/*"
 ```
