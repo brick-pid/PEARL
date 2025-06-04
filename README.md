@@ -17,3 +17,35 @@ While Large Language Models (LLMs) have demonstrated remarkable capabilities in 
 ## Supported Programming Languages
 
 We support the following programming languages five languages: Racket, OCaml, R, Python, and Java. Now we have release the Racket version, more will be released soon.
+
+## Project Structure
+
+```
+PEARL/
+├── config/                   # Configuration files
+├── methods/                  # different inference methods
+│   ├── pearl/                # PEARL Inference
+│   ├── raw/                  # raw inference
+│   └── ...
+├── rag/                      # Retrieval components
+│   ├── retriever.py
+│   └── embedder.py
+├── contrastive_learning/     # RRD training
+├── documents/                # Knowledge bases and processing
+├── prompts/                  # Prompts
+├── utils/
+└── multipl_e/                # Evaluation framework
+```
+
+## Quick Start
+Generate code completions:
+
+```bash
+python inference.py lang="rkt" name="unsloth/Meta-Llama-3.1-8B-Instruct" method="pearl"
+```
+
+Run evaluation across multiple languages:
+
+```bash
+bash run_gen.sh
+```
